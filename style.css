@@ -1,0 +1,58 @@
+body {
+  font-family: "Courier New", Courier, monospace;
+  background-color: #ffffff;
+  color: #111;
+  line-height: 1.6;
+}
+
+.container {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 0 20px;
+}
+
+h1 {
+  margin-bottom: 5px;
+}
+
+.subtitle {
+  margin-top: 0;
+  color: #444;
+}
+
+.links a {
+  text-decoration: none;
+  color: #0066cc;
+}
+
+.links a:hover {
+  text-decoration: underline;
+}
+
+hr {
+  margin: 30px 0;
+}
+
+.project {
+  margin-bottom: 30px;
+}
+
+.project h3 {
+  margin-bottom: 5px;
+}
+
+.project-links a {
+  text-decoration: none;
+  color: #0066cc;
+}
+
+.project-links a:hover {
+  text-decoration: underline;
+}
+
+code {
+  background-color: #f2f2f2;
+  padding: 2px 4px;
+  border-radius: 3px;
+}
+
