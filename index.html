@@ -1,56 +1,120 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Aaron – Computer Science</title>
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Aaron Solis</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 
 <body>
-  <div class="container">
+  <main class="container">
 
-    <h1>Aaron</h1>
-    <p class="subtitle">
-      Computer Science • Systems • Linux • Networking • Security
-    </p>
+    <header class="header">
+      <h1>Welcome to Aaron Solis’s Page</h1>
+      <p class="tagline">
+        Computer Science @ UTSA • Systems • Linux • Networking • Security
+      </p>
 
-    <p class="links">
-      <a href="resume.pdf">Resume</a> |
-      <a href="https://github.com/yourusername">GitHub</a> |
-      <a href="mailto:your@email.com">Email</a>
-    </p>
+      <nav class="nav">
+        <a href="#about">About</a>
+        <a href="#resume">Resume</a>
+        <a href="#projects">Work</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </header>
 
-    <hr>
-
-    <h2>Projects</h2>
-
-    <div class="project">
-      <h3>AI-Assisted Network Traffic Classifier</h3>
+    <section id="about" class="section">
+      <h2>About</h2>
       <p>
-        Linux program written in C that captures network traffic using
-        <code>libpcap</code>, extracts packet-level features, and performs
-        lightweight machine-learning inference for traffic classification.
+        I’m Aaron Solis, a Computer Science student at UTSA. My interests are in
+        low-level systems, Linux, networking, and security. I enjoy understanding
+        how software behaves close to the operating system and network layer, and
+        I like building and documenting projects that show how systems work under
+        the hood.
       </p>
-      <p class="project-links">
-        <a href="project-ai.html">Write-up</a> |
-        <a href="https://github.com/yourusername/ai-network-classifier">Code</a>
-      </p>
-    </div>
 
-    <div class="project">
-      <h3>System Exploitation Labs</h3>
+      <ul class="bullets">
+        <li><strong>Focus:</strong> C, embedded/Linux fundamentals, networking concepts, security tooling</li>
+        <li><strong>Tools:</strong> Wireshark, Nmap, Snort/Suricata, Splunk, Git, Bash</li>
+        <li><strong>Currently:</strong> finishing my degree and building more systems-focused projects</li>
+      </ul>
+    </section>
+
+    <section id="resume" class="section">
+      <h2>Resume</h2>
       <p>
-        Documented labs exploring memory corruption vulnerabilities on Linux
-        systems, including stack-based buffer overflows, format string issues,
-        and mitigation behavior (ASLR, NX).
+        <span class="muted">PDF:</span> SOLIS_AARON_RESUME.pdf
       </p>
-      <p class="project-links">
-        <a href="project-exploit.html">Write-up</a> |
-        <a href="https://github.com/yourusername/system-exploitation-labs">Code</a>
-      </p>
-    </div>
 
-  </div>
+      <div class="actions">
+        <a class="btn" href="documentation/SOLIS_AARON_RESUME.pdf" target="_blank" rel="noopener">
+          View Resume
+        </a>
+
+        <a class="btn secondary" href="documentation/SOLIS_AARON_RESUME.pdf" download>
+          Download Resume
+        </a>
+      </div>
+
+      <p class="small muted">
+        Tip: “View” opens the PDF in the browser. “Download” saves it to their device.
+      </p>
+    </section>
+
+    <section id="projects" class="section">
+      <h2>Work</h2>
+
+      <article class="card">
+        <h3>System Exploitation Labs</h3>
+        <p class="muted">C • Linux • memory behavior • mitigations</p>
+        <p>
+          A collection of labs and write-ups focused on understanding how memory
+          corruption vulnerabilities happen and how modern mitigations (ASLR, NX)
+          affect exploitability. The emphasis is on analysis, documentation, and
+          defensive takeaways.
+        </p>
+        <p class="links">
+          <a href="https://github.com/dragonwick" target="_blank" rel="noopener">GitHub</a>
+          <span>·</span>
+          <a href="#contact">Request details</a>
+        </p>
+      </article>
+
+      <article class="card">
+        <h3>Networking + Security Tooling</h3>
+        <p class="muted">Wireshark • Nmap • IDS/Monitoring</p>
+        <p>
+          Practical work using packet analysis and security tools to understand
+          network behavior, detect patterns, and investigate system activity.
+        </p>
+        <p class="links">
+          <a href="https://github.com/dragonwick" target="_blank" rel="noopener">GitHub</a>
+        </p>
+      </article>
+
+      <p class="small muted">
+        (You can replace these cards with specific repos as you publish them.)
+      </p>
+    </section>
+
+    <section id="contact" class="section">
+      <h2>Contact</h2>
+      <ul class="bullets">
+        <li><strong>Email:</strong> <a href="mailto:YOUR_EMAIL_HERE">YOUR_EMAIL_HERE</a></li>
+        <li><strong>GitHub:</strong> <a href="https://github.com/dragonwick" target="_blank" rel="noopener">github.com/dragonwick</a></li>
+        <li><strong>LinkedIn:</strong> <a href="YOUR_LINKEDIN_HERE" target="_blank" rel="noopener">YOUR_LINKEDIN_HERE</a></li>
+      </ul>
+    </section>
+
+    <footer class="footer">
+      <p class="muted">© <span id="year"></span> Aaron Solis</p>
+    </footer>
+
+  </main>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
-
