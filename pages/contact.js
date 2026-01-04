@@ -57,6 +57,16 @@ export default function Contact() {
               <p className="text-cyber-accent font-mono">github.com/dragonwick</p>
             </motion.a>
           </div>
+
+          <div className="mt-10 flex justify-center">
+            <motion.a
+              href="/"
+              whileHover={{ scale: 1.04, y: -2 }}
+              className="inline-flex items-center gap-2 px-5 py-3 rounded-lg border border-cyber-accent/40 text-cyber-accent font-mono text-sm hover:border-cyber-accent hover:bg-cyber-accent/10 transition-colors"
+            >
+              ← Back to Home
+            </motion.a>
+          </div>
         </motion.div>
       </div>
     </div>

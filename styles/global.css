@@ -38,17 +38,6 @@
     @apply transition-all duration-300 hover:transform hover:scale-105 hover:shadow-cyan-500/20;
   }
   
-  .terminal-cursor::after {
-    content: '█';
-    @apply text-cyber-accent;
-    animation: blink 1s infinite;
-  }
-  
-  @keyframes blink {
-    0%, 49% { opacity: 1; }
-    50%, 100% { opacity: 0; }
-  }
-  
   .glow {
     box-shadow: 0 0 20px rgba(0, 212, 255, 0.3);
   }

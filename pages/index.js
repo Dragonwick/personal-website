@@ -2,7 +2,7 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { useState, useEffect } from 'react'
 import { FaTerminal, FaDownload, FaEnvelope, FaPhone, FaLinkedin, FaGithub } from 'react-icons/fa'
 import CommandPalette from '../components/CommandPalette'
-import SkillRadar from '../components/SkillRadar'
+
 
 export default function Home() {
   const [showCommand, setShowCommand] = useState(false)
@@ -27,14 +27,7 @@ export default function Home() {
 
   return (
     <div className="min-h-screen">
-      {/* Hidden trigger for command palette (hover top-left corner) */}
-      <div 
-        className="fixed top-0 left-0 w-8 h-8 z-50 cursor-help"
-        onMouseEnter={() => setShowCommand(true)}
-        title="Press Cmd/Ctrl + K to open command palette"
-      />
-      
-     <AnimatePresence>
+      <AnimatePresence>
         {showCommand && <CommandPalette onClose={() => setShowCommand(false)} />}
       </AnimatePresence>
 
@@ -45,7 +38,7 @@ export default function Home() {
       <About />
       
       {/* Skills */}
-      <Skills />
+      
       
       {/* Projects */}
       <Projects />
@@ -94,7 +87,7 @@ const Hero = ({ scrollY }) => {
         </div>
         
         <h1 className="text-6xl md:text-8xl font-bold font-mono mb-4">
-          <span className="text-gradient terminal-cursor">{`{Aaron Solis}`}</span>
+          <span className="text-gradient">{`{Aaron Solis}`}</span>
         </h1>
         
         <motion.p 
@@ -112,35 +105,34 @@ const Hero = ({ scrollY }) => {
           Computer Science • Cybersecurity Minor • GPA: 3.97/4.0
         </p>
         
-        <div className="flex flex-wrap gap-4 justify-center mb-12">
-          <motion.a
-            href="#contact"
-            className="px-8 py-3 bg-cyber-accent text-cyber-dark font-bold rounded-lg card-hover glow"
-            whileHover={{ scale: 1.05, y: -2 }}
-            whileTap={{ scale: 0.95 }}
-          >
-            <span className="flex items-center gap-2">
+        <div className="flex flex-col items-center gap-6 mb-16">
+          <div className="flex flex-wrap gap-4 justify-center">
+            <motion.a
+              href="/contact"
+              className="px-7 py-3 min-w-[190px] flex items-center justify-center gap-2 bg-cyber-accent text-cyber-dark font-bold rounded-lg card-hover glow"
+              whileHover={{ scale: 1.05, y: -2 }}
+              whileTap={{ scale: 0.95 }}
+            >
               <FaEnvelope /> Get In Touch
-            </span>
-          </motion.a>
-          
-          <motion.a
-            href="/SOLIS_AARON_RESUME.pdf"
-            download
-            className="px-8 py-3 border-2 border-cyber-accent text-cyber-accent font-bold rounded-lg card-hover"
-            whileHover={{ scale: 1.05, y: -2, backgroundColor: 'rgba(0, 212, 255, 0.1)' }}
-            whileTap={{ scale: 0.95 }}
-          >
-            <span className="flex items-center gap-2">
+            </motion.a>
+            
+            <motion.a
+              href="/SOLIS_AARON_RESUME.pdf"
+              download
+              className="px-7 py-3 min-w-[190px] flex items-center justify-center gap-2 border-2 border-cyber-accent text-cyber-accent font-bold rounded-lg card-hover"
+              whileHover={{ scale: 1.05, y: -2, backgroundColor: 'rgba(0, 212, 255, 0.1)' }}
+              whileTap={{ scale: 0.95 }}
+            >
               <FaDownload /> Download Resume
-            </span>
-          </motion.a>
-        </div>
-        
-        <div className="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce">
-          <svg className="w-6 h-6 text-cyber-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
-          </svg>
+            </motion.a>
+          </div>
+
+          <div className="flex flex-col items-center gap-3 mt-3 text-cyber-accent animate-bounce">
+            <span className="text-sm font-mono opacity-75">Scroll</span>
+            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+            </svg>
+          </div>
         </div>
       </motion.div>
     </section>
@@ -164,35 +156,47 @@ const About = () => {
         className="space-y-6 text-gray-300 leading-relaxed text-lg"
       >
         <p>
-          I am a <span className="text-cyber-accent font-semibold">Computer Science student</span> at the <span className="text-cyber-accent font-semibold">University of Texas at San Antonio</span> with a strong interest in building, understanding, and securing real systems. My technical foundation is rooted in <span className="text-cyber-neon font-semibold">low-level systems</span>, <span className="text-cyber-neon font-semibold">Linux/UNIX environments</span>, <span className="text-cyber-neon font-semibold">C programming</span>, <span className="text-cyber-neon font-semibold">networking</span>, and <span className="text-cyber-neon font-semibold">security engineering</span>.
+          I am a <span className="text-cyber-accent font-semibold">Computer Science student</span> with a strong interest in understanding how real systems work. My background centers on <span className="text-cyber-neon font-semibold">programming</span>, <span className="text-cyber-neon font-semibold">operating systems</span>, <span className="text-cyber-neon font-semibold">networking</span>, and <span className="text-cyber-neon font-semibold">security</span>, with hands-on experience in <span className="text-cyber-neon font-semibold">Linux environments</span> and <span className="text-cyber-neon font-semibold">low-level development</span>.
         </p>
         
         <p>
-          What draws me to this field is working close to real system behavior. I enjoy <span className="text-cyber-neon font-semibold">building systems</span>, <span className="text-cyber-neon font-semibold">inspecting failures</span>, and understanding how software, operating systems, and networks interact in practice.
+          I am drawn to work that sits close to system behavior. I enjoy <span className="text-cyber-neon font-semibold">building software</span>, <span className="text-cyber-neon font-semibold">investigating failures</span>, and reasoning about how programs interact with memory, operating systems, and networks under real conditions.
         </p>
 
         <p>
-          I am a rising graduate and early in my professional career, but highly motivated to learn through hands-on experience. I value environments that encourage <span className="text-cyber-accent font-semibold">curiosity</span>, <span className="text-cyber-accent font-semibold">mentorship</span>, and <span className="text-cyber-accent font-semibold">deep technical thinking</span>, where I can grow professionally while taking on meaningful challenges.
+          As an early-career engineer, I value environments that encourage <span className="text-cyber-accent font-semibold">curiosity</span>, <span className="text-cyber-accent font-semibold">mentorship</span>, and <span className="text-cyber-accent font-semibold">rigorous technical thinking</span>. I am seeking opportunities where I can continue developing strong fundamentals while contributing to meaningful and technically challenging problems.
         </p>
-        
-        <div className="bg-cyber-card p-6 rounded-lg border border-cyber-accent/20 mt-8">
-          <p className="text-cyber-accent font-mono text-sm mb-2">$ cat career_objective.txt</p>
-          <p className="text-gray-300 italic">
-            "Seeking cybersecurity roles that value curiosity, mentorship, and deep technical thinking. Ready to tackle meaningful challenges in penetration testing, security research, and systems security."
-          </p>
-        </div>
       </motion.div>
     </section>
   )
 }
 
 const Skills = () => {
+  const languageDetails = [
+    { name: "C", detail: "Systems programming, memory management, exploitation labs" },
+    { name: "Python", detail: "Scripting, automation, data processing" },
+    { name: "Java", detail: "Coursework, object-oriented design" },
+    { name: "Bash", detail: "Linux automation and tooling" },
+    { name: "C#", detail: "Basic application development" }
+  ]
+
+  const securityToolDetails = [
+    { name: "Wireshark / tcpdump", detail: "Packet and protocol analysis" },
+    { name: "Metasploit", detail: "Exploit framework usage" },
+    { name: "Nmap", detail: "Network scanning and enumeration" },
+    { name: "John the Ripper", detail: "Password cracking labs" },
+    { name: "Aircrack-ng", detail: "Wireless security analysis" },
+    { name: "Snort / Suricata", detail: "IDS exposure" }
+  ]
+
   const skillCategories = {
-    "Languages": ["C", "Python", "BASH", "Java", "C#"],
-    "Security Tools": ["Metasploit", "Wireshark", "Nmap", "Aircrack-ng", "John the Ripper", "Snort", "Suricata"],
-    "Frameworks": ["ATT&CK", "NIST", "CVSS", "MITRE"],
-    "Systems": ["Linux/Unix", "x86/x64", "ARM", "IoT", "Embedded Systems"]
+    "Operating Systems": ["Linux (Kali, Ubuntu, Debian)", "Windows"],
+    "Systems & Architecture": ["Linux internals", "Process memory & stack behavior", "x86/x64 architecture", "GDB debugging"],
+    "Networking": ["TCP/IP", "DNS", "BGP basics", "Packet analysis (Wireshark, tcpdump)", "iperf3"]
   }
+
+  const [openLanguage, setOpenLanguage] = useState(null)
+  const [openTool, setOpenTool] = useState(null)
   
   return (
     <section id="skills" className="py-20 px-4 max-w-6xl mx-auto">
@@ -204,15 +208,91 @@ const Skills = () => {
         $ ls -la skills/
       </motion.h2>
       
-      <SkillRadar />
+      
       
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-12">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.05 }}
+          className="bg-cyber-card p-6 rounded-lg border border-cyber-accent/20"
+        >
+          <h3 className="text-xl font-bold text-cyber-neon mb-4 font-mono">Languages</h3>
+          <div className="space-y-2">
+            {languageDetails.map((lang, idx) => {
+              const isOpen = openLanguage === idx
+              return (
+                <div key={lang.name} className="border border-cyber-accent/20 rounded-lg overflow-hidden bg-cyber-dark/60">
+                  <button
+                    className="w-full px-4 py-3 flex items-center justify-between text-left text-sm font-mono text-cyber-accent hover:bg-cyber-accent/10 transition-colors"
+                    onClick={() => setOpenLanguage(isOpen ? null : idx)}
+                  >
+                    <span className="font-semibold text-white">{lang.name}</span>
+                    <span className={`text-xs transition-transform ${isOpen ? 'rotate-90' : ''}`}>▸</span>
+                  </button>
+                  <AnimatePresence initial={false}>
+                    {isOpen && (
+                      <motion.div
+                        initial={{ opacity: 0, height: 0 }}
+                        animate={{ opacity: 1, height: 'auto' }}
+                        exit={{ opacity: 0, height: 0 }}
+                        transition={{ duration: 0.2 }}
+                        className="px-4 pb-3 text-sm text-gray-300"
+                      >
+                        {lang.detail}
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </div>
+              )
+            })}
+          </div>
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.1 }}
+          className="bg-cyber-card p-6 rounded-lg border border-cyber-accent/20"
+        >
+          <h3 className="text-xl font-bold text-cyber-neon mb-4 font-mono">Security Tools</h3>
+          <div className="space-y-2">
+            {securityToolDetails.map((tool, idx) => {
+              const isOpen = openTool === idx
+              return (
+                <div key={tool.name} className="border border-cyber-accent/20 rounded-lg overflow-hidden bg-cyber-dark/60">
+                  <button
+                    className="w-full px-4 py-3 flex items-center justify-between text-left text-sm font-mono text-cyber-accent hover:bg-cyber-accent/10 transition-colors"
+                    onClick={() => setOpenTool(isOpen ? null : idx)}
+                  >
+                    <span className="font-semibold text-white">{tool.name}</span>
+                    <span className={`text-xs transition-transform ${isOpen ? 'rotate-90' : ''}`}>▸</span>
+                  </button>
+                  <AnimatePresence initial={false}>
+                    {isOpen && (
+                      <motion.div
+                        initial={{ opacity: 0, height: 0 }}
+                        animate={{ opacity: 1, height: 'auto' }}
+                        exit={{ opacity: 0, height: 0 }}
+                        transition={{ duration: 0.2 }}
+                        className="px-4 pb-3 text-sm text-gray-300"
+                      >
+                        {tool.detail}
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </div>
+              )
+            })}
+          </div>
+        </motion.div>
+
         {Object.entries(skillCategories).map(([category, skills], i) => (
           <motion.div
             key={category}
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ delay: i * 0.1 }}
+            transition={{ delay: (i + 2) * 0.1 }}
             className="bg-cyber-card p-6 rounded-lg border border-cyber-accent/20"
           >
             <h3 className="text-xl font-bold text-cyber-neon mb-4 font-mono">{category}</h3>
@@ -233,19 +313,20 @@ const Skills = () => {
 const Projects = () => {
   const projects = [
     {
-      title: "System Exploitation Framework",
-      category: "Binary Exploitation",
+      title: "System Exploitation",
+      category: "Systems Security",
       score: "8/8 Systems Compromised",
-      description: "Advanced exploitation of x86/x64 Linux systems using memory corruption vulnerabilities",
+      description: "Exploitation of x86/x64 Linux systems using memory corruption vulnerabilities",
       details: [
         "Compromised 8 systems using buffer overflows, format strings, and ROP chaining",
         "Bypassed ASLR, NX, and stack canaries with custom exploit development",
         "Implemented persistence via backdoors and rootkit techniques",
         "Developed automation scripts for scalable exploitation"
       ],
-      tools: ["C", "Python", "GDB", "Pwntools", "ROPgadget", "IDA Pro"],
-      impact: "100% exploitation success rate",
-      difficulty: "Expert"
+      tools: ["C", "Python", "GDB", "Bash", "xxd", "IDA Pro"],
+      impact: "Low-level system vulnerabilities and behavior.",
+      note: "Custom shellcode and exploitation scripts developed for this project are available for discussion upon request.",
+      disclaimer: "Conducted in a controlled academic lab environment."
     },
     {
       title: "WEP/WPA2 Insecurity Analysis",
@@ -258,9 +339,9 @@ const Projects = () => {
         "Executed ChopChop, ARP replay, and fake authentication attacks",
         "Achieved 75% WEP, 40% WPA cracking success using GPU acceleration"
       ],
-      tools: ["Aircrack-ng", "Kismet", "Hashcat", "Wireshark", "Reaver"],
-      impact: "Exposed critical wireless infrastructure risks",
-      difficulty: "Advanced"
+      tools: ["Aircrack-ng", "Kismet", "Wireshark", "Hashcat", "Nmap"],
+      impact: "Network protocol behavior and trust assumptions.",
+      hideButton: true
     },
     {
       title: "Nonprofit Security Audit",
@@ -268,14 +349,15 @@ const Projects = () => {
       score: "NIST IR 7621",
       description: "Enterprise-grade cybersecurity audit following federal guidelines",
       details: [
-        "Conducted comprehensive audit against NIST IR 7621 framework",
-        "Identified 23 critical vulnerabilities with CVSS scoring",
-        "Developed custom compliance checklist and remediation roadmap",
-        "Presented findings to leadership, improving security posture by 60%"
+        "Performed a comprehensive cybersecurity audit aligned with NIST IR 7621 guidelines",
+        "Evaluated organizational security controls, policies, and technical safeguards",
+        "Identified high-risk security gaps and control deficiencies using industry-standard risk assessment methods",
+        "Developed a tailored compliance checklist and prioritized remediation roadmap",
+        "Presented executive-level findings and mitigation strategies to organizational leadership"
       ],
-      tools: ["NIST Framework", "Splunk", "Nessus", "OpenVAS", "Metasploit"],
-      impact: "60% security improvement in 90 days",
-      difficulty: "Professional"
+      tools: ["NIST Cybersecurity Framework", "NIST SP 800-30", "NIST SP 800-53", "MITRE ATT&CK"],
+      impact: "Security governance and organizational risk awareness",
+      note: "Project conducted under a non-disclosure agreement."
     }
   ]
   
@@ -289,7 +371,7 @@ const Projects = () => {
         $ ./show_projects.sh
       </motion.h2>
       
-      <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-6 items-start">
         {projects.map((project, i) => (
           <ProjectCard key={project.title} project={project} index={i} />
         ))}
@@ -300,6 +382,7 @@ const Projects = () => {
 
 const ProjectCard = ({ project, index }) => {
   const [isHovered, setIsHovered] = useState(false)
+  const hasFooter = !!project.note || !project.hideButton
   
   return (
     <motion.div
@@ -308,7 +391,7 @@ const ProjectCard = ({ project, index }) => {
       transition={{ delay: index * 0.15 }}
       onHoverStart={() => setIsHovered(true)}
       onHoverEnd={() => setIsHovered(false)}
-      className="bg-cyber-card rounded-lg border border-cyber-accent/30 overflow-hidden card-hover h-full flex flex-col"
+      className="bg-cyber-card rounded-lg border border-cyber-accent/30 overflow-hidden card-hover flex flex-col"
     >
       {/* Terminal Header */}
       <div className="bg-cyber-dark px-4 py-3 border-b border-cyber-accent/20 flex items-center gap-2">
@@ -325,7 +408,7 @@ const ProjectCard = ({ project, index }) => {
         <p className="text-cyber-accent font-mono text-sm mb-4">{project.score}</p>
         <p className="text-gray-300 mb-4">{project.description}</p>
         
-        <div className="space-y-3 flex-1">
+        <div className={`space-y-3 ${hasFooter ? "flex-1" : ""}`}>
           <div>
             <p className="text-cyber-accent font-mono text-xs mb-2">$ cat details.md</p>
             <ul className="space-y-1">
@@ -350,27 +433,29 @@ const ProjectCard = ({ project, index }) => {
         </div>
         
         <div className="mt-4 pt-4 border-t border-cyber-accent/20">
-          <div className="flex justify-between items-center">
-            <span className="text-cyber-neon font-bold text-sm">{project.impact}</span>
-            <span className={`text-xs px-2 py-1 rounded ${
-              project.difficulty === 'Expert' ? 'bg-red-500/20 text-red-400' :
-              project.difficulty === 'Advanced' ? 'bg-yellow-500/20 text-yellow-400' :
-              'bg-green-500/20 text-green-400'
-            }`}>
-              {project.difficulty}
-            </span>
-          </div>
+          <span className="text-cyber-neon font-bold text-sm block">{project.impact}</span>
         </div>
         
-        <motion.a
-          href="https://github.com/dragonwick"
-          target="_blank"
-          className="mt-4 w-full text-center px-4 py-2 bg-cyber-accent text-cyber-dark font-bold rounded font-mono text-sm card-hover"
-          whileHover={{ scale: 1.02 }}
-        >
-          <FaGithub className="inline mr-2" />
-          View Repository →
-        </motion.a>
+        {project.note ? (
+          <div className="mt-4 p-3 bg-cyber-dark rounded border border-cyber-accent/30 text-cyber-accent text-sm font-mono italic">
+            {project.note}
+            {project.disclaimer && (
+              <p className="mt-2 text-xs opacity-60 not-italic text-gray-400">
+                {project.disclaimer}
+              </p>
+            )}
+          </div>
+        ) : !project.hideButton ? (
+          <motion.a
+            href="https://github.com/dragonwick"
+            target="_blank"
+            className="mt-4 w-full text-center px-4 py-2 bg-cyber-accent text-cyber-dark font-bold rounded font-mono text-sm card-hover"
+            whileHover={{ scale: 1.02 }}
+          >
+            <FaGithub className="inline mr-2" />
+            View Repository →
+          </motion.a>
+        ) : null}
       </div>
     </motion.div>
   )
@@ -451,10 +536,10 @@ const CTA = () => {
           $ ./contact.sh
         </motion.h2>
         <p className="text-xl text-gray-300 mb-8">
-          Interested in discussing security research, penetration testing, or systems engineering opportunities?
+          Always curious about how systems actually work!
         </p>
         <motion.a
-          href="#contact"
+          href="/contact"
           className="inline-block px-8 py-4 bg-cyber-accent text-cyber-dark font-bold rounded-lg text-xl card-hover glow"
           whileHover={{ scale: 1.05, y: -2 }}
         >
@@ -470,7 +555,7 @@ const Footer = () => {
     <footer className="py-12 px-4 border-t border-cyber-accent/20">
       <div className="max-w-4xl mx-auto text-center">
         <p className="text-gray-400 font-mono">
-          © 2025 Aaron Solis. Built with Next.js, Tailwind CSS, and me ofc.
+          © 2025 Aaron Solis. Built with Next.js, Tailwind CSS.
         </p>
         <div className="flex justify-center gap-6 mt-4">
           <a href="https://github.com/dragonwick" target="_blank" className="text-cyber-accent hover:text-cyber-neon transition-colors">
