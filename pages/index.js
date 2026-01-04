@@ -7,12 +7,26 @@ import CommandPalette from '../components/CommandPalette'
 export default function Home() {
   const [showCommand, setShowCommand] = useState(false)
   const [scrollY, setScrollY] = useState(0)
+  const [scrollDirection, setScrollDirection] = useState('up')
+  const [lastScrollY, setLastScrollY] = useState(0)
 
   useEffect(() => {
-    const handleScroll = () => setScrollY(window.scrollY)
-    window.addEventListener('scroll', handleScroll)
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY
+      
+      if (currentScrollY > lastScrollY && currentScrollY > 100) {
+        setScrollDirection('down')
+      } else if (currentScrollY < lastScrollY) {
+        setScrollDirection('up')
+      }
+      
+      setScrollY(currentScrollY)
+      setLastScrollY(currentScrollY)
+    }
+    
+    window.addEventListener('scroll', handleScroll, { passive: true })
     return () => window.removeEventListener('scroll', handleScroll)
-  }, [])
+  }, [lastScrollY])
 
   useEffect(() => {
     const handleKeyDown = (e) => {
@@ -53,7 +67,7 @@ export default function Home() {
       <Footer />
       
       {/* Floating Elements */}
-      <FloatingResumeButton />
+      <FloatingResumeButton scrollDirection={scrollDirection} />
     </div>
   )
 }
@@ -570,12 +584,15 @@ const Footer = () => {
   )
 }
 
-const FloatingResumeButton = () => {
+const FloatingResumeButton = ({ scrollDirection }) => {
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ delay: 1, type: "spring" }}
+      animate={{ 
+        opacity: scrollDirection === 'down' ? 0 : 1, 
+        y: scrollDirection === 'down' ? 100 : 0 
+      }}
+      transition={{ duration: 0.3, type: "spring" }}
       className="fixed bottom-6 right-6 z-40"
     >
       <motion.a
