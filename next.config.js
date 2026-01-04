@@ -4,6 +4,10 @@ const nextConfig = {
   swcMinify: true,
   output: 'export',
   basePath: '',
+  assetPrefix: '',
+  images: {
+    unoptimized: true, // This is CRITICAL for GitHub Pages
+  },
 }
 
 module.exports = nextConfig
