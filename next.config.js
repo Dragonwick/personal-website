@@ -6,7 +6,7 @@ const nextConfig = {
   basePath: '',
   assetPrefix: '',
   images: {
-    unoptimized: true, // This is CRITICAL for GitHub Pages
+    unoptimized: true,
   },
 }
 
